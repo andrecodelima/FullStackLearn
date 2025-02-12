@@ -5,25 +5,20 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.8</version>
+		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>net.sys.gest</groupId>
-	<artifactId>projeto-login-01</artifactId>
+	
+	<groupId>net.sys.empresa</groupId>
+	<artifactId>projeto-login-mod1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>projeto-login-01</name>
+	<name>projeto-login-mod1</name>
 	<description>Projeto Login</description>
-	
-	
+	 
 	<properties>
 		<java.version>17</java.version>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-		<maven.test.skip>true</maven.test.skip>
-
 	</properties>
-	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -76,13 +71,6 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-		</dependency>
-		
-		<!-- jjwt-->
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>0.12.5</version>
 		</dependency>
 		
 			<!-- jwt-->
@@ -156,6 +144,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>sistema_gestao_patrimonio</finalName>
+		<finalName>projeto_login</finalName>
 	</build>
 </project>
