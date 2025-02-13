@@ -19,41 +19,32 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
 	@Autowired
-	SecurityFilter securityFilter;
-	
-public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		
-		http
-						.csrf(csrf -> csrf.disable())
-						
-						// Todas as Apis RestFull preicisam ser Stateless, ou seja, elas nao guardam o estado de login dentro delas.
-						.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-						
-						.authorizeHttpRequests(authorize -> authorize
-								
-								// Esses endpoints a baixo nao precisam de autenticacao.
-								.requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-								.requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-								
-								// Outras requisicoes precisam estar autenticadas.
-								.anyRequest().authenticated()
-								
-								)
-						
-							// Antes de fazer as autorizacoes rode o filtro que ira fazer as validacoes solicitadas pela classe SecurityFilter
-							.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
-		
-		return http.build();
-	}
-	
-	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-	
-	@Bean
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
-		return authenticationConfiguration.getAuthenticationManager();
-	}
+    private CustomUserDetailsService userDetailsService;
+
+    @Autowired
+    SecurityFilter securityFilter;
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
 }
