@@ -2,6 +2,10 @@
     title="Login into your account"
     primaryBtnText="Login now"
     secondaryBtnText="Signup Now"
+    (submit)="submit()"
+    (navigate)="navigate()"
+    [disablePrimaryBtn]="loginForm.valid"
+
 >
 
 <form [formGroup]="loginForm">
