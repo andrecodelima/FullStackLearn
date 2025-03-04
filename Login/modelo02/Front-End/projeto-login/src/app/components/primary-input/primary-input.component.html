@@ -1,1 +1,14 @@
-<p>primary-input works!</p>
+<div class="input-wrapper">
+    <label for=""></label>
+    <div class="input-content">
+        <input type="text"
+            [type] ="type"
+            [placeholder]="placeHolder"
+            
+        >
+    </div>
+
+    <div class="icon">
+        <ng-content></ng-content>
+    </div>
+</div>
