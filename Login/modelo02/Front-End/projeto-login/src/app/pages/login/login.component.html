@@ -1,8 +1,16 @@
-<app-default-login-layout
+<app-default-login-layout  
 
     title="Login into your account"
-    primararyBtnText="Login Now"
+    primaryBtnText="Login Now"
     secondaryBtnText="Signup Now"
 >
-   
+    <div form-content>
+        <form [formGroup]="loginForm">
+            <!-- Criar componentes visto que os inputs são genéricos -->
+        </form>
+    </div>
+    <!-- <div extra-content>
+        <p>Teste</p>
+    </div> -->
+
 </app-default-login-layout>

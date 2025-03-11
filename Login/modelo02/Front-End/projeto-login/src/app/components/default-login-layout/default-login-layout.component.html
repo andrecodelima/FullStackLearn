@@ -3,18 +3,20 @@
         <img src="assets/svg/logo.svg" />
         <h2>{{title}}</h2>
 
+        <ng-content select="[form-content]"></ng-content>
+
          <div class="btn-wrapper">
-            <button>
-                {{primararyBtnText}}
+            <button class="btn-primary">
+                {{primaryBtnText}}
             </button>
 
-            <div>
+            <div class="divider">
                 <div></div>
                 <span>or</span>
                 <div></div>
             </div>
 
-            <button>
+            <button class="btn-secondary">
                 {{secondaryBtnText}}
             </button>
         </div>
@@ -24,6 +26,9 @@
     <section class="main-section">
         <h1>Login Page</h1>
         <img src="assets/svg/main-ilustration.svg" />
+
+        <ng-content select="[extra-content]"></ng-content>
+
     </section>
 
 
