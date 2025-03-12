@@ -4,9 +4,29 @@
     primaryBtnText="Login Now"
     secondaryBtnText="Signup Now"
 >
-    <div form-content>
+    <div form-content class="div-form">
         <form [formGroup]="loginForm">
-            <!-- Criar componentes visto que os inputs são genéricos -->
+                <app-primary-inputs
+                    formControlName="email"
+                    inputName="email"
+                    type="email"
+                    label="Email"
+                    placeHolder="exemplo@gmail.com"
+                >
+                <img src="/assets/svg/email-icon.svg" alt="">
+            </app-primary-inputs>
+
+            <app-primary-inputs
+                    formControlName="password"
+                    inputName="password"
+                    type="password"
+                    label="Your Password"
+                 >
+                <img src="/assets/svg/password-icon.svg" alt="">
+            </app-primary-inputs>
+
+            <span>Forgot Password</span>
+
         </form>
     </div>
     <!-- <div extra-content>

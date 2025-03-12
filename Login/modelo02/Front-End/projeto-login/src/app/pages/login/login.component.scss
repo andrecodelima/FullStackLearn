@@ -1,0 +1,22 @@
+@use "../../styles/variables.scss" as *;
+
+.div-form{
+    // border: 2px solid;
+    width: 100%;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        margin-bottom: 34px;
+        // border: 1px solid red;
+    
+        span{
+            font-size: 14px;
+            text-decoration: underline;
+            color:$secondary-color;
+            text-align: end;
+        }
+    }
+}
