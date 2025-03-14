@@ -3,6 +3,9 @@
     title="Login into your account"
     primaryBtnText="Login Now"
     secondaryBtnText="Signup Now"
+    (submit)="submit()"
+    (navigate)="navigate()"
+
 >
     <div form-content class="div-form">
         <form [formGroup]="loginForm">
