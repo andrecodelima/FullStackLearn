@@ -5,7 +5,7 @@
     secondaryBtnText="Signup Now"
     (submit)="submit()"
     (navigate)="navigate()"
-
+    [disablePrimaryBtn]="!loginForm.valid"
 >
     <div form-content class="div-form">
         <form [formGroup]="loginForm">
